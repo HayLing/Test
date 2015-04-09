@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>推送消息</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_announcementlist.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+		<script type="text/javascript">
+			var userId = window.localStorage.getItem("userId");
+			window.onload = function(){
+				loadMessageList();
+			}
+		
+	        //查看公告
+            var messagingIframe;
+	        function getAnnouncementById(announcementId){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+                messagingIframe.src='js-call://oa_announcement/announcement.html?param=announcement';
+                window.localStorage.setItem("announcementId", announcementId);
+	        	//window.AndroidClientJava.getAnnouncementById(announcementId);
+	        }
+	        
+			//拉取消息内容
+			function loadMessageList(){
+                ///httpAnnouncementAction!getAnnouncementForAndroid.do
+				var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=announcement";
+				var param = [{"key":"userId","type":"0","value":userId}];
+				var html='';
+				$.getJSON(path,function(data){
+                    $("#content2").hide();
+                    if(data.length > 0){
+                        for (var i = 0; i < data.length; i++) {
+                          var pointdiv="";
+                          if(!data[i].readStatus){
+                            pointdiv = '<div class="point_div"></div>';
+                          }
+                          html += '<table cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;"'+
+                          'border="0" onclick="getAnnouncementById(\''+ data[i].announcementId +'\')" class="messagetable">' +
+                          '<tr>'+
+                          '<td align="center" class="messageimgtd">'+
+                          '<div class="messageimg">'+
+                          pointdiv+
+                          '</div>'+
+                          '</td>'+
+                          '<td align="center">'+
+                          '<table class="messagecontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">'+
+                          '<tr>'+
+                          '<td colspan="2" class="messagetitle">'+ data[i].topic +'</td>'+
+                          '</tr>'+
+                          '<tr>'+
+                          '<td class="messagecontent">发布者：'+ data[i].authorName +'</td>'+
+                          '<td class="messagetime">'+data[i].createTime +'<td>'+
+                          '</tr>'+
+                          '</table>'+
+                          '</td>'+
+                          '</tr>'+
+                          '</table>';
+                        }
+                        $("#content").html(html);
+                    }else{
+                          showNoResult();
+                    }
+                },'json',function(e){}, 'POST', param, "");
+			}
+		</script>
+        </head>
+  
+  <body style="background-color:#e8e8e8;width: 100%;">
+      <div id="content">
+          &nbsp;
+      </div> 
+      <div id="content2">
+          &nbsp;
+      </div> 
+  </body>
+</html>

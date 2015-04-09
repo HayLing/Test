@@ -1,0 +1,47 @@
+#levelmenu{margin:0 0 0 0; width: 35%; float:left; background-color: #e8e8e8; height:100%;}
+#levelmenu ul {margin:0;}
+#levelmenu ul li {margin:0;padding:0; list-style:none;}
+.liaclass{
+	font-size:0.875em;
+	font-family:Microsoft YaHei;
+	color:#ffffff;
+	display:block;
+	background-image:url('../images/01nav_mid.png');
+	background-size:0.875em  3.4375em;
+	background-repeat: repeat;
+	text-align:center;
+	text-decoration:none;
+	text-transform:uppercase;
+	line-height:3.4375em;
+	height: 3.4375em;
+}
+.onmousedownclass{
+	font-size:0.875em;
+	font-family:Microsoft YaHei;
+	color:#f26c37;
+	display:block;
+	background-image:url('../zxjj/images/nav.png');
+	background-size:0.875em  3.4375em;
+	background-repeat: repeat-x;
+	text-align:center;
+	text-decoration:none;
+	text-transform:uppercase;
+	height: 3.4375em;
+	line-height:3.4375em;
+}
+#menucontent{margin:0 0 0 0; width: 65%; float:left; background-color: #e8e8e8; height:100%;}
+#menucontent p {
+	text-indent: 2em; 
+	font-size:0.875em;
+	font-family:Microsoft YaHei;
+	color:#333333;
+}
+#menucontent span {
+	font-size:1.125em;
+	font-family:Microsoft YaHei;
+	color:#333333;
+}
+#menucontent div {padding-left: 0.625em;padding-right: 0.625em;}
+.divclass{display:none; padding-top: 2.625em;}
+.selected{ display: block; padding-top: 2.625em; }
+		

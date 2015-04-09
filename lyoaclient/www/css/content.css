@@ -1,0 +1,51 @@
+.contentTbl{
+	padding:0.2em;
+	padding-bottom:0em;
+}
+.contentTbl_td_mid{
+	background-image:url('../images/kycd/02bg_mid.png');
+	height: 3.375em;
+	background-size:100% 3.375em;
+}
+
+.contentTbl_td_left{
+	width:0.25em;
+	height: 3.375em;
+	background-image:url('../images/kycd/02bg_left.png');
+	background-size:0.25em 3.375em;
+	background-repeat:no-repeat;
+}
+
+.contentTbl_td_right{
+	width:0.25em;
+	height: 3.375em;
+	background-image:url('../images/kycd/02bg_right.png');
+	background-size:0.25em 3.375em;
+	background-repeat:no-repeat;
+}
+
+.contentTbl_td_div_left{
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.9em;
+	color: #333;
+	padding-left:0.5em;
+}
+.contentTbl_td_div_title{
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	color: #777777;
+	padding-left:0.5em;	
+}
+
+.contentTbl_td_div_enterDate{
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	color: #777777;
+}
+
+.cutText{
+	white-space:nowrap; 
+	text-overflow:ellipsis;
+	overflow:hidden; 
+	display:block
+}

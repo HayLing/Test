@@ -1,0 +1,56 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+.settingtable{
+	padding-top:1em; 
+	background-color: #FFFFFF;
+	border-bottom: #CDCDCD 1px solid;
+}
+.settingcontenttable{
+	padding-bottom:1em;
+	padding-left: 1em;
+}
+.settingcontent{
+	color: #9B9B9B;
+	height: 1.5em;
+	font-size: 0.8em;
+}
+.settingtitle{
+	color: #333333;
+	font-size: 1.2em;
+	height: 1.5em;
+	width: 80%;
+}
+.settingInnertitle{
+	color: #333333;
+	font-size: 1.2em;
+	height: 1.5em;
+	vertical-align:middle;
+}
+.settingimg{
+	padding-left: 1.1875em;
+	padding-bottom: 1em;
+	width:20%;
+}
+.pushtext{
+	color: #767676;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.875em;
+}
+.pushtitle{
+	color:#333333;
+	font-size:1.2em;
+	font-family: "Microsoft YaHei" ! important;
+}
+.settingimgright{
+	text-align:right;
+	padding-right:1em;
+}
+.span_title{
+	font-family: "Microsoft YaHei" ! important;
+	font-size:1.125em;
+}
+

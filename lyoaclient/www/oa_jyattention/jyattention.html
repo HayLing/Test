@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>经营指标</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_jyreportlist.css" />
+        <link rel="stylesheet" type="text/css" href="../css/webview.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+	</head>
+	<body>
+			<div id="content" class="reportcontent">
+				&nbsp;
+			</div>
+			<div id="content2">
+				&nbsp;
+			</div>
+
+	</body>
+    <script type="text/javascript">
+		var templetId = window.localStorage.getItem("templetId"); 
+		
+		window.uexOnload = function(fu){
+			showLoading();
+			loadReportListByTemplet();
+		}
+		
+		function loadReportListByTemplet(){
+		
+			var path = gzprma_path+"/httpReportAction!getReportListByTempletId.do";
+			var param = [{"key":"templetId","type":"0","value":templetId}];
+			$("#content2").hide();
+			$.getJSON(path,function(data){
+				var html = '';
+				if(data.length > 0){
+					for (var i = 0; i < data.length; i++) {
+					var styleName = "";
+					if(i%2==0){
+						styleName = "jobtable";
+					}else{
+						styleName = "jobtable2";
+					}
+					
+					html += '<table id="'+data[i].id+'" cellspacing="0" cellpadding="0" width="100%" border="0" onclick="gotoJYReportInfo(\''+data[i].id+'\',\'report\',\''+data[i].name+'\');" class="'+ styleName +'">'+
+						'<tr>'+
+						'<td>'+
+						'<table class="jobcontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">' +
+						'<tr>'+
+						'<td colspan="2" class="jobtitle">'+data[i].name+'</td>'+	
+						'</tr>'+
+						'<tr>'+
+						'<td class="jobcontent">'+ data[i].address +'</td>'+
+						'<td class="jobtime">'+ data[i].createtime +'<td>'+
+						'</tr>'+
+						'</table>'+'</td></tr></table>';				
+					}
+					$("#content").html(html);
+				}else{
+					showNoResult();
+				}
+			},'json',function(e){}, 'POST', param, "");
+		}
+		
+		//跳转到经营指标
+        var messagingIframe;
+		function gotoJYReportInfo(id,indexListType,reportName){
+            if(!messagingIframe){
+                messagingIframe = document.createElement('iframe');
+                messagingIframe.style.display = 'none';
+                document.documentElement.appendChild(messagingIframe);
+            }
+            messagingIframe.src='js-www://?title='+reportName+'?param='+id+','+indexListType;
+			//window.AndroidClientJava.goToJYReportInfo(id,indexListType,reportName);
+		}
+		
+		//清除缓存
+        function closeCache(){
+	        localStorage.removeItem("pages");
+		    localStorage.removeItem("loadhtml");
+		    localStorage.removeItem("search");
+        }
+    </script>
+    
+</html>

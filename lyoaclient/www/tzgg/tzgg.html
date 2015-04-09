@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>TZGG</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bszy.css" />
+	</head>
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div >
+			<div id="content">
+				&nbsp;
+			</div>
+		</div>
+	</body>
+    <script type="text/javascript">
+		var path = gzprma_path+"/tzggst/tzggstAction!getTzggstCount.do";
+		$.getJSON(path,function(data){
+				var html = "";
+				var type = "tzgg";
+				for (var i = 0; i < data.length; i++) {
+					html += '<table  class="typetable" border="0" cellpadding="0" cellspacing="0">' +
+					'<tr id="' + data[i].categoryId +'" onclick="turnActivityList(this.id,\''+ type +'\',\''+ data[i].tzcount +'\');">' +
+					'<td class="left"></td>' +
+					'<td class="icon1" style="width: 2.125em;height: 2.125em;"><img src="../images/tzgg/icon__0'+ i +'.png" style="width: 2.125em;height: 2.125em; margin-top:0.2em;" /></td>' +
+					'<td class="title1"><p class="titletext">' + data[i].categoryName + '</p></td>' +
+					'<td class="number" ><p class="numbertext">' + data[i].tzcount + '</p></td>' +
+					'<td class="right"></td>' +
+					'</tr>' +
+					'</table>';
+				}
+				$("#content").html(html);
+			});
+		function turnActivityList(id,type,count){
+			if(parseInt(count) <= 0){
+   				alert("暂无数据！");
+   			}else{
+				window.localStorage.setItem("tzggList",id);
+				window.AndroidClientJava.turnActivityList(id,type); 
+			}
+		}
+    </script>
+</html>

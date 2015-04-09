@@ -1,0 +1,96 @@
+@charser "utf-8";
+.listsize{
+	height:25px; 
+	line-height: 25px;
+}
+.taL{
+	border: 1px solid #DDDDDC !important;
+	background-color: #F7F7F5 !important;
+}
+.Ltitle{
+	font-size: 18px;
+	color: #333333;
+	width: 96%;
+	font-family: "Î¢ÈíÑÅºÚ";
+	font-weight: bold;
+}
+.Lcontent{
+	font-size: 16px;
+	color: #898989;
+}
+.Ltime{
+	font-size: 16px;
+	color: #D0AC76;
+	font-family: 12px;
+}
+.GZAPtitle{
+	font-weight: bold;
+	font-size: 16px;
+	color: #787878;
+	width: 96%;
+}
+.GZAPcontent{
+	font-size: 14px;
+	color: #898989;
+}
+.GZAPtime{
+	font-size: 14px;
+	color: #D0AC76;
+	font-family: 12px;
+}
+.contentList{
+	margin-top:46px;
+	overflow-y:hidden;
+}
+.t_aTitle{
+	font-size: 22px;
+	font-weight:bold;
+	width: 80%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	text-align: center;
+}
+.t_aContent{
+	font-size:18px;
+	width:90%;
+	margin:0 auto;
+	text-indent: 2em;
+}
+.publishCenter{
+	width:90%;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: right;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;	
+}
+.t_aTime{
+	width:90%;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: right;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;	
+}
+.cutText{
+	white-space:nowrap; 
+	text-overflow:ellipsis;
+	overflow:hidden; 
+	display:block
+}
+.loadMore{
+	background-image: url("../images/clickLoadMore.png");
+	width:96%;
+	background-repeat: no-repeat;
+}
+.loadEnd{
+	background-image: url("../images/clickLoadEnd.png");
+	width:96%;
+	background-repeat: no-repeat;
+}
+.t_more{
+	width: 100%;
+}

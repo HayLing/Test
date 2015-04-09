@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>待阅列表</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_readlist.css" />
+        <link rel="stylesheet" type="text/css" href="../css/checkboxstyle.css" />
+        <link rel="stylesheet" type="text/css" href="../css/webview.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+        <style type = "text/css">
+           /* text-align:center;*/
+
+        </style>
+	</head>
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div id="content">
+			<div id="content1">
+				&nbsp;
+			</div>
+			<div id="content2">
+                &nbsp;
+            </div>
+		</div>
+	</body>
+    <script type="text/javascript">
+		var userId = window.localStorage.getItem("userId");
+		var len;
+		window.uexOnload = function(fu){
+			showLoading();
+			loadData();
+		}
+        //显示checkbox
+        var isMgr = true;
+    function manager(){
+        isMgr = false;
+        var html ='<img src="../images/oa_readlist/02btn_3.png" style="width:3.5em;height:2em; float:right;margin-left:5px;" onclick="deleteData();">'+
+        '<img src="../images/oa_readlist/02btn_2.png" style="width:3.5em;height:2em;float:right;margin-left:5px; " onclick="allSelect();">'+
+        '<img src="../images/oa_readlist/02btn_002.png" style="width:3.5em;height:2em;float:right;" onclick="ret();">';
+        $("#titleDiv").html(html);
+        var box = document.getElementsByName("checkbox");
+        for (var i = 0; i < box.length; i++) {
+            $("#box"+i).show();
+        }
+    }
+    //返回
+    function ret(){
+        isMgr = true;//恢复初始值
+        isSelect = true;//恢复初始值
+        var html ='<img src="../images/oa_readlist/02btn_1.png" style="width:3.5em;height:2em;float:right; " onclick="manager();"/>';
+        $("#titleDiv").html(html);
+        var box = document.getElementsByName("checkbox");
+        for (var i = 0; i < box.length; i++) {
+            box[i].checked = false;//取消所有选择
+            $("#box"+i).hide();//隐藏所有checkbox
+        }
+    }
+    
+    //删除
+    function deleteData(){
+        var box = document.getElementsByName("checkbox");
+        for (var i = 0; i < box.length; i++) {
+            if(box[i].checked){
+                removeTable(i,box[i].value);
+            }
+        }
+    }
+    //全选/取消
+    var isSelect = true;
+    function allSelect(){
+        var box = document.getElementsByName("checkbox");
+        if(isSelect){
+            for (var i = 0; i < box.length; i++) {
+                box[i].checked = true;
+            }
+            isSelect = false;
+        }else{
+            for (var i = 0; i < box.length; i++) {
+                box[i].checked = false;
+            }
+            isSelect = true;
+        }
+        
+    }
+        //首次加载数据
+		function loadData(){
+            ///httpWaitreadAction!getWfMsgListByCreateId.do
+			var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=readlist";
+			var param = [{"key":"userId","type":"0","value":userId},{"key":"status","type":"0","value":1},{"key":"page","type":"0","value": '1'}];
+			$.getJSON(path,function(data){
+				$("#content2").hide();
+				var html = "";
+				if(data.length > 0){
+                      len =data.length;
+                      html = '<table style="width:96%;margin:auto;margin-bottom:5px;margin-top:5px;" cellspacing="0"  cellpadding="0"  border="0">'+
+                      '<tr>'+
+                      '<td>'+
+                      '<div id="titleDiv">'+
+                      '<img src="../images/oa_readlist/02btn_1.png" style="width:3.5em;height:2em;float:right; " onclick="manager();"/>'+
+                      '</div>'+
+                      '</td>'+
+                      '</tr>'+
+                      '</table>';
+                      for (var i = 0; i < data.length; i++) {
+                        var title = '你在'+data[i].name+'的法务中收到待阅信息，请查看表单信息！';
+                        var width = document.body.clientWidth;
+                        var textwidth = (width-40)+"px";
+                        var tablestyle= "readtable";
+                        var boxdiv = 'box'+i;
+                        var boxname = 'checkbox'+i;
+                      //onclick="getWfMsgById(\''+ data[i].id +'\',\''+ data[i].wvFormUrl +'\'); removeTable('+ i +');"
+                        html += '<table onclick="getWfMsgById(\''+ i +'\',\''+ data[i].id +'\',\''+ data[i].wvFormUrl +'\');" cellspacing="0" id="table'+ i +'" cellpadding="0"  style="width:96%;margin:auto;margin-top:5px;" border="0" class="'+ tablestyle +'">'+
+                            '<tr>'+
+                            '<td width="85%">'+
+                            '<table  class="readcontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">' +
+                            '<tr>'+
+                            '<td class="readcontent">'+ data[i].enterDate +'</td>'+
+                            '</tr>'+
+                            '<tr>'+
+                            '<td  class="readtitle">'+title+'</td>'+
+                            '</tr>'+
+                            '</table>'+
+                            '</td>'+
+                            '<td width="15%">'+
+                            '<table  cellspacing="0" cellpadding="0" width="100%" border="0">' +
+                            '<tr>'+
+                            '<td align="center" rowspan="2" class="readtime"><div id="'+ boxdiv +'" style="display:none;">'+
+                            '<input type="checkbox" name="checkbox" value="'+ data[i].id +'" id="'+data[i].id+'" class="css-checkbox" /><label  class="css-label"></label><td></div>'+
+                            '</tr>'+
+                            '</table>'+
+                            '</td>'+
+                            '</tr></table>';
+                      }
+					$("#content1").html(html);
+				}else{
+					showNoResult();
+				}
+			},'json',function(e){}, 'POST', param, "");
+		}
+      
+		//清除缓存
+        function closeCache(){
+	        localStorage.removeItem("pages");
+		    localStorage.removeItem("loadhtml");
+		    localStorage.removeItem("search");
+        }
+        
+        //查看待阅信息
+        var messagingIframe;
+        function getWfMsgById(i,msgId,wvFormUrl){
+            
+            if(!messagingIframe){
+                messagingIframe = document.createElement('iframe');
+                messagingIframe.style.display = 'none';
+                document.documentElement.appendChild(messagingIframe);
+            }
+            //messagingIframe.src='js-call://oa_readlist/readwaite.html?title=readlist';
+        	window.localStorage.setItem("msgId", msgId);
+            
+            if(isMgr){
+        		removeTable(i,msgId);
+        		messagingIframe.src='readform://?param=readform,'+wvFormUrl;//表单
+        	}else{
+        		var check = document.getElementById(msgId);
+        		if(check.checked){
+           			check.checked = false;
+           		}else{
+           			check.checked = true;
+           		}
+        	}
+            
+            
+//            var path = gzprma_path+"/httpWaitreadAction!getWfMsgById.do";
+//            var param = [{"key":"msgId","type":"0","value":msgId}];
+//            $.getJSON(path,function(data){
+//                      for (var i = 0; i < data.length; i++) {
+//                      messagingIframe.src='readform://?param=readform,'+data[i].wvFormUrl;
+//                      break;
+//                      }
+//                },'json',function(e){}, 'POST', param, "");
+
+
+        }
+        
+        
+		//移除待阅表格
+		function removeTable(i,msgId){
+			document.getElementById("table" + i).style.display="none";
+            //var path = gzprma_path+"/httpWaitreadAction!setWfMsgReadStatus.do";
+            var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=removeToBeRead";
+			var param = [{"key":"wfMsg.id","type":"0","value":msgId},{"key":"wfMsg.status","type":"0","value":2}];
+			$.getJSON(path,function(data){},'json',function(e){}, 'POST', param, "");
+        }
+		
+    </script>
+</html>

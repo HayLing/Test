@@ -1,0 +1,148 @@
+.home_1{
+	padding: 0em;
+	margin: 0em;
+	background-color: #ebefee;
+}
+
+.home_table1{
+	width: 100%;
+	border: 0em;
+}
+.home_table2{
+	width: 100%;
+	vertical-align: bottom;
+}
+
+
+.home_table3{
+	width: 100%;
+	border: 0em;
+	padding: 0em;
+	margin: 0em;
+}
+
+.home_table{
+	width: 100%;
+	border: 0pem;
+	margin-left: 0.12em;
+}
+
+.home_table3 img{
+	width: 100%;
+}
+
+.home_table img{
+	width: 100%;
+}
+
+.home_top1{
+	background-image: url("../images/zzyx/01top_mid.png");
+	width: 100%;
+	height: 2.75em;
+	background-repeat: repeat-x;
+}
+
+.home_top2{
+	background-image: url("../images/zzyx/01top_mid.png");
+	background-repeat: repeat-x;
+}
+.home_top3{	
+	background-image: url("../images/zzyx/01top_mid.png");
+	background-repeat: repeat-x;
+}
+
+.home_top2{
+	width: 100%;
+	border: 0em;
+}
+
+.home_yhzx{
+	line-height: 2.4375em;
+	height: 2.4375em;
+	float: left;
+	text-align: center;
+	width: 50%;
+	color: #FFFFFF;
+	font-size:1.125em;
+	font-weight:bold;
+	text-decoration:none;
+    background-color: #3399ff;
+}
+
+.home_yhzx a{
+	font-size: 1.125em;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.home_login{
+	line-height: 2.4375em;
+	height: 2.4375em;
+	float: left;
+	text-align: center;
+	width: 50%;
+	color: #000000;
+	font-size:18px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.home_login a{
+	font-size: 1.125em;
+	color: #000000;
+	text-decoration: none;
+}
+
+
+.home_left1{
+	width: 61%;
+}
+.home_right1{
+	width: 35%;
+}
+
+.home_left2{
+	width: 35%
+}
+.home_right2{
+	width: 65%;
+}
+
+.home_left3{
+	width: 65%
+}
+.home_right3{
+	width: 35%;
+}
+
+.home_left4{
+	width: 35%
+}
+.home_right4{
+	width: 65%;
+}
+
+.home_bottom0{
+	width: 100%;
+	background-image: url("../images/zzyx/03bg_mid.png");
+	background-repeat: repeat-x;
+}
+.home_bottom1{
+	width: 1%;
+	background-image: url("../images/zzyx/01nav_1(1).png");
+}
+.home_bottom2{
+	width: 5%;
+}
+.home_bottom3{
+	width: 93%;
+	background-image: url("../images/zzyx/03bg_mid.png");
+	background-repeat: repeat-x;
+}
+
+.home_bottom4{
+	width: 1%;
+	background-image: url("../images/zzyx/01nav_1(2).png");
+}
+

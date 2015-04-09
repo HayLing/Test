@@ -1,0 +1,145 @@
+body{
+	padding: 0em;
+	margin: 0em;
+}
+
+.contentTable{
+	text-align: center;
+}
+.readtable{
+	padding-top:1em; 
+	background-color: #F5F5F5;
+	border-bottom: #CDCDCD 1px solid;
+}
+.readtable2{
+	padding-top:1em; 
+	background-color: #F5F5F5;
+	border-bottom: #CDCDCD 1px solid;
+}
+.readcontenttable{
+	padding-bottom:1em;
+	padding-left: 1em;
+}
+.readtitle{
+	color: #333333;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 1em;
+	height: 1.5em;
+}
+.readcontent{
+	color: #9B9B9B;
+	height: 1.5em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+}
+.readimgtd{
+	width :2.1875em; 
+	height:2.78125em;
+}
+.readimg{
+	padding-left: 1.1875em;
+	padding-bottom: 1em;
+}
+.readtime{
+	color: #D4D4D4;
+	height: 1.5em;
+	text-align: right;
+	padding-right: 1em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+}
+
+.msgcontenttitle2{
+	padding-left:0.5em;
+	padding-top:0.8em;
+	font-size:1em;
+	color:#717472;
+	font-family:"Microsoft YaHei" ! important;
+}
+
+.msgcontenttitle{
+	padding-left:0.5em;
+	font-size:1.125em;
+	color:#67442c;
+	font-family:黑体;
+	font-weight:bold;
+}
+
+.msgcontentImg{
+	padding-left:1em;
+}
+.msgcontentImg2{
+	padding-top:0.8em;
+	padding-left:1.2em;
+}
+
+.msgcontent{
+	text-align: center;
+}
+
+.contentdiv{
+	background-color: #FDFDFD;
+	border: 1px solid #DBDBDB;
+	margin-top: 5px;
+	width: 100%;
+	height: 90%;
+}
+
+.contentTable{
+	background-color: #fff;
+	border: 1px solid #DBDBDB;
+	text-align:center;
+	margin-top: 5px;
+	width: 100%;
+}
+.contentTable2{
+	margin: 0.3em;
+	vertical-align: center;
+	border: 0.01em solid #DBDBDB;
+	background-color: #FDFDFD;
+	width: 98%;
+}
+.contentTable{
+	background-color: #fff;
+}
+.content{
+	margin-top:1em;
+}
+.content2{
+	padding:1em;
+	height:4em;
+}
+.td_top{
+	width:100%;
+	height: 0.5em;
+	padding-top:0.1em;
+	background-image:url('../images/oa_readlist/02bg_up.png');
+	background-size:100% 0.5em;
+	background-repeat:no-repeat;
+}
+.td_mid{
+	width:100%;
+	height: 0.1em;
+	background-image:url('../images/oa_readlist/02bg_mid.png');
+	background-size:100% 0.1em;
+	background-repeat:repeat-y;
+}
+.td_bottom{
+	width:100%;
+	height: 0.5em;
+	background-image:url('../images/oa_readlist/02bg_down.png');
+	background-size:100% 0.5em;
+	background-repeat:no-repeat;
+}
+.context_div{
+	font-size:0.875em;
+	color:#417379;
+	font-family:"Microsoft YaHei" ! important;
+	padding-left:0.5em;
+	padding-right:0.5em;
+}
+.author_span{
+	font-size:0.875em;
+	color:#333;
+	font-family:"Microsoft YaHei" ! important;
+}

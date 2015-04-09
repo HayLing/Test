@@ -1,0 +1,31 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+.flowlisttable{
+	padding-top:1em; 
+	background-color: #FFFFFF;
+	border-bottom: #CDCDCD 1px solid;
+}
+.flowlistcontenttable{
+	padding-bottom:1em;
+	padding-left: 1em;
+}
+
+.flowlisttitle{
+	color: #333333;
+	font-size: 0.9em;
+	height: 1.5em;
+	width: 80%;
+}
+
+.span_title{
+	padding-left:0.1me;
+	font-family: "Microsoft YaHei" ! important;
+	font-size:1em;
+	color:#999;
+}
+
+

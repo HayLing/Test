@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>推送消息</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_message.css" />
+		<script type="text/javascript" src="../js/flow.js"></script>
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+		<script type="text/javascript">
+			var userId = window.localStorage.getItem("userId");
+			window.onload = function(){
+				loadMessageList();
+                document.documentElement.style.webkitTouchCallout = "none"; //禁止弹出菜单
+                document.documentElement.style.webkitUserSelect = "none";//禁止选中
+			}
+		
+			//查看待阅信息
+            var messagingIframe;
+	        function getWfMsgById(id,msgId){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+			  	window.localStorage.setItem("msgId", msgId);
+
+                var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=stayReadStatus";
+                var param = [{"key":"pushMessage.id","type":"0","value":id},
+                             {"key":"pushMessage.msgstatus","type":"0","value":'2'}];
+                $.getJSON(path,function(data){
+                    if(data.flag){
+                       toWfMsgInfo(msgId);
+                    }
+                },'json',function(e){}, 'POST', param, "");
+
+
+	        }
+        
+            function toWfMsgInfo(msgId){
+                ///httpWaitreadAction!getWfMsgById.do
+                var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=daiyue";
+                var param = [{"key":"msgId","type":"0","value":msgId}];
+                $.getJSON(path,function(data){
+                        for (var i = 0; i < data.length; i++) {
+                          messagingIframe.src='readform://?param=readform,'+data[i].wvFormUrl;
+                          break;
+                        }
+                },'json',function(e){}, 'POST', param, "");
+            }
+        
+	        //查看待办信息
+	        function turnDetailForm(id,baseId, instanceId, jobId, round, formUrl){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+                ///httpPushMessageAction!updatePushMessageForAndroid.do
+			  	var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=jobMsgStatus";
+                var param = [{"key":"pushMessage.id","type":"0","value":id},
+                             {"key":"pushMessage.msgstatus","type":"0","value":'2'}];
+                $.getJSON(path,function(data){
+                    if(data.flag){
+                        messagingIframe.src='gojob://?title='+baseId+','+instanceId+','+jobId+','+round+','+formUrl;
+                    }
+                },'json',function(e){}, 'POST', param, "");
+                
+	        }
+	        
+	        //查看经营指标信息
+	        function goToJYReportInfo(id, indexListType, reportName){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+			  	messagingIframe.src='goattention://?title='+reportName+'?param='+id+','+indexListType;
+	        }
+	        
+	        var timeOutEvent=0;//定时器 
+			 //开始按 
+			function gtouchstart(pushId){
+				//alert(pushId); 
+			     timeOutEvent = setTimeout("longPress('"+pushId+"')",500);//这里设置定时器，定义长按500毫秒触发长按事件，时间可以自己改，个人感觉500毫秒非常合适 
+			     return false; 
+			 }; 
+			 //手释放，如果在500毫秒内就释放，则取消长按事件，此时可以执行onclick应该执行的事件 
+			function gtouchend(){ 
+			     clearTimeout(timeOutEvent);//清除定时器 
+			     if(timeOutEvent!=0){ 
+			         //这里写要执行的内容（尤如onclick事件） 
+			         //alert("你这是点击，不是长按"); 
+			     } 
+			     return false; 
+			 }; 
+			 //如果手指有移动，则取消所有事件，此时说明用户只是要移动而不是长按 
+			function gtouchmove(){ 
+			     clearTimeout(timeOutEvent);//清除定时器 
+			     timeOutEvent = 0; 
+			 }; 
+			  
+			 //真正长按后应该执行的内容 
+			function longPress(pushId){ 
+			     timeOutEvent = 0;
+                 if(!messagingIframe){
+                     messagingIframe = document.createElement('iframe');
+                     messagingIframe.style.display = 'none';
+                     document.documentElement.appendChild(messagingIframe);
+                 }
+                 messagingIframe.src='js-alert://';
+			     window.localStorage.setItem("pushId", pushId);
+			 }
+            function delPushMessage(){
+                var pushId = window.localStorage.getItem("pushId");
+                ///httpPushMessageAction!delPushMessageForAndroid.do
+                var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=deleteMsg";
+                var param = [{"key":"pushMessage.id","type":"0","value":pushId}];
+                $.getJSON(path,function(data){
+                    if(data[0].flag){
+                        $("#"+pushId).hide();
+                    }else{
+                        alert("删除失败");
+                    }
+                },'json',function(e){}, 'POST', param, "");
+            }
+			//下拉刷新
+			window.onscroll=function(){
+			  if(reachBottom()){
+			  	 loadMessageList();
+			  }
+			}
+			
+			//拉取消息内容
+			var index = 0;
+    		var firstInFlag = 0;
+			function loadMessageList(){
+				var startNumStr = $("#startNum").val();
+				var oldContentHtml = "";
+				if(startNumStr != ""){
+					var startRownum = parseInt(startNumStr);		//获取开始页数
+					if(index == 0){ 
+						index = 1;							//开始执行AJAX并锁定
+						$("#loadImg").show();
+                        ///httpPushMessageAction!getPushMessageList.do
+						var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=messageList";
+						var param = [{"key":"pushMessage.userid","type":"0","value":userId}
+									,{"key":"startRownum","type":"0","value":startRownum}
+									,{"key":"endRownum","type":"0","value":startRownum+10}];
+						$.getJSON(path,function(data){
+							var html = "";
+							oldContentHtml = $("#content").html();
+							if(data.length > 0){
+								firstInFlag =1;
+								for (var i = 0; i < data.length; i++) {
+									var imgId= "oa_icon_2.png";
+									var clickMethod = "";
+									var appName = "";
+                                    var msgContent ="";
+									var appType = data[i].messageType;
+									if('1' == appType){
+										appName ="待办事项";
+                                        msgContent = '['+data[i].snumber+ ']&nbsp;'+ data[i].wiName.substr(0 , 10);
+										imgId = "icon_1.png";
+										clickMethod = 'turnDetailForm(\''+ data[i].pushId+'\', \''+data[i].baseId+'\', \''+ data[i].instanceId +'\', \''+data[i].jobId +'\', \''+data[i].round +'\', \''+data[i].formUrl+'\');';
+									}else if('2' == appType){
+										appName = "待阅事项";
+                                        var tempContent = data[i].wfName;
+                                        tempContent = tempContent.replace("<span class=spanRedFont>","");
+                                        tempContent = tempContent.replace("</span>","");
+                                        msgContent = tempContent.substr(0 , 15)+"...";
+										imgId = "icon_2.png";
+										clickMethod = 'getWfMsgById(\''+data[i].pushId+'\', \''+ data[i].msgId+'\');';
+									}
+                                  var pointdiv="";
+                                  if(data[i].msgstatus ==1){
+                                    pointdiv = '<div class="point_div"></div>';
+                                  }
+                                  html += '<table id='+data[i].pushId+' cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;" border="0" onclick="'+ clickMethod +'"  ontouchstart="gtouchstart(\''+data[i].pushId +'\')" ontouchmove="gtouchmove()" ontouchend="gtouchend()" class="messagetable">' +
+                                  '<tr>'+
+                                  '<td class="messageimgtd">'+
+                                  '<img class="messageimg" src="../images/oa_main/'+ imgId +'"/>'+
+                                  pointdiv+
+                                  '</td>'+
+                                  '<td>'+
+                                  '<table class="messagecontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">'+
+                                  '<tr>'+
+                                  '<td class="messagetitle">'+appName +'</td>'+
+                                  '<td class="messagetime">'+data[i].enterdate +'<td>'+
+                                  '</tr>'+
+                                  '<tr>'+
+                                  '<td colspan="2" class="messagecontent">'+  msgContent +'</td>'+
+                                  '</tr>'+
+                                  '</table>'+
+                                  '</td>'+
+                                  '</tr>'+
+                                  '</table>';
+                                }
+								$("#startNum").val(startRownum + 10);
+								$("#content").html(oldContentHtml+html);
+								$("#contentbody").show();
+								$("#loadImg").hide();
+								index = 0;
+							}else{
+								if($("#content").html()!='\n\t\t\t\t\t\t\t&nbsp;\n\t\t\t\t\t\t'){
+									$("#loadImg").hide();
+								}else{
+									$("#loadImg").hide();
+									showNoResult();
+									$("#contentbody").show();
+								}
+							}				
+						},'json',function(e){}, 'POST', param, "");
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	
+	<body style="background-color:#e8e8e8;">
+	    <table align="center" cellpadding="0" cellspacing="0" style="margin-top: -1.2em;width: 100%;">
+	  		<tbody id="contentbody" style="display: none;">
+	  			<tr>
+	  				<td>
+					 	<div id="content">
+							&nbsp;
+						</div>
+	  				</td>
+	  			</tr>
+	  		</tbody>
+	  		<tfoot >
+	  		<tr>
+	  			<td id="loadImg" align="center" style="background-color: white;display: none;">
+	  				<img alt=" " src="../images/loding1.gif"/>
+	  			</td>
+	  		</tr>
+	  		</tfoot>
+		</table>
+        <div style="height:5px;">&nbsp;</div>
+		<input id="startNum" name="startNum" type="hidden" value="0" />
+	</body>
+</html>

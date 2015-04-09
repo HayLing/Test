@@ -1,0 +1,156 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	background-color: #ebefee;
+}
+.head{
+	height: 44px;
+	width:100%;
+	background-color:#038FD1;
+}
+.head_right_line{
+	height: 44px;
+	width: 2px;
+	position:absolute;
+	margin-left:50px;
+	background-image: url(../images/05line.png);	
+}
+.head_title{
+	line-height: 44px;
+	height: 44px;
+	float: left;
+	text-align: center;
+	width: 100%;
+	color: white;
+	font-size:20px;
+	font-weight:bold;
+}
+.head_title1{
+	line-height: 44px;
+	height: 44px;
+	float: left;
+	text-align: center;
+	width: 100%;
+	color: white;
+	font-size:20px;
+	font-weight:bold;
+	margin-left: 10px;
+}
+.head_back{
+	height: 25px;
+	width: 28px;
+	position:absolute;
+	padding-left:20px;
+	padding-top:15px;
+}
+
+.head_back1{
+	height: 25px;
+	width: 28px;
+	position:absolute;
+	padding-left:10px;
+	padding-top:8px;
+}
+
+
+.typetable{
+	width:100%;
+	padding-top: 4px;
+}
+.typetable .left{
+	background-image: url(../images/bszy/01nav_left.png);
+	width: 10px;
+	height: 55px;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.typetable .icon{
+	 background-image: url(../images/bszy/01nav_mid.png); 
+	height: 55px;
+	width: 26px;
+	vertical-align: middle;
+}
+
+.typetable .title{
+	background-image: url(../images/bszy/01nav_mid.png);
+	height: 55px;
+	padding-left:10px;
+	font-weight:bold;
+	color:#333333;
+}
+
+.typetable .number{
+	background-image: url(../images/bszy/02icon__17_2.png);
+	width:38px;
+	height: 55px;
+	text-align: center;
+	color:white;
+	font-weight:bold;
+}
+.typetable .right{
+	background-image: url(../images/bszy/01nav_right.png);
+	padding-right:3px;
+	width: 9px;
+	height: 55px;
+	background-repeat: no-repeat;
+}
+/* .typetable{
+	width:100%;
+	padding-top: 2px;
+}
+.typetable .left{
+	background-image: url(../images/typetable_left.png);
+	width: 10px;
+	height: 43px;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.typetable .icon{
+	background-image: url(../images/typetable_c.png);
+	height: 43px;
+	width: 26px;
+}
+
+.typetable .title{
+	background-image: url(../images/typetable_c.png);
+	height: 43px;
+	padding-left:10px;
+	font-weight:bold;
+	color:#333333;
+}
+
+.typetable .number{
+	background-image: url(../images/typetable_c.png);
+	height: 43px;);
+	width:28px;
+	height: 43px;
+	text-align: center;
+	color:white;
+	font-weight:bold;
+	font-size: 14px;
+}
+.typetable .right{
+	background-image: url(../images/typetable_r.png);
+	width: 9px;
+	height: 43px;
+	background-repeat: no-repeat;
+} */
+
+.footer{
+	height: 79px;
+	width: 100%;
+	position:absolute;
+	top:100%;
+	margin-top:-79px;
+	background-image: url(../images/04bg.png);	
+}
+/* .numText{
+	line-height:41px;
+	width: 28px;
+	height: 43px;
+	background-image: url("../images/bszy_icon__17.png");
+	background-repeat: no-repeat;
+	background-position-y: 13px;
+} */

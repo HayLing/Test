@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>推送消息</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/webview.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bszy.css" />
+		<link rel="stylesheet" type="text/css" href="../css/content.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+		<script type="text/javascript">
+			//待办
+			function goToJobList(){
+				window.AndroidClientJava.goToJobList();
+			}
+			
+			//待阅
+			function goToReadList(){
+				window.AndroidClientJava.goToReadList();
+			}
+			
+			//发起流程
+			function goToSendCenter(){
+				window.AndroidClientJava.goToSendCenter();
+			}
+		</script>
+	</head>
+	
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div>
+			<table cellspacing="0" cellpadding="0" width="100%" border="0" style="padding-top:1em; padding-bottom:1em;">
+				<tr>
+					<td style="width :2.1875em; height:2.78125em;" onclick="goToJobList();">
+						<img src="../images/oa_main/oa_icon_2.png"/>
+					</td>
+					<td>
+						<table cellspacing="0" cellpadding="0" width="100%" border="0">
+							<tr>
+								<td>待办应用</td>
+							</tr>
+							<tr>
+								<td>2014年4月龙岩业务发展</td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<span>下午：14：37</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img src="../images/oa_main/oa_line.png" style="width:100%; height:0.1em;"/>
+					</td>
+				</tr>
+			</table>
+			
+			
+			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+				<tr>
+					<td style="width :2.1875em; height:2.78125em;" onclick="goToReadList();">
+						<img src="../images/oa_main/oa_icon_4.png"/>待阅
+					</td>
+				</tr>
+			</table>
+			
+			
+			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+				<tr>
+					<td style="width :2.1875em; height:2.78125em;" onclick="goToSendCenter();">
+						<img src="../images/oa_main/oa_icon_8.png"/>发起流程
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+	</body>
+</html>

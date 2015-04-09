@@ -1,0 +1,18 @@
+body{
+	padding: 0em;
+	margin: 0em;
+}
+
+.login_tab{
+	width: 15.1875em;
+	height:14.90625em;
+	text-align: center;
+	/**/
+}
+.input_login{
+	border: 0px;
+	font-size: 1em;
+	font-family: "Microsoft YaHei";
+	background-color:transparent;
+	width:180px;
+}

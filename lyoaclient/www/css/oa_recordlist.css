@@ -1,0 +1,74 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #FFFFFF;
+}
+.jobtable{
+	padding-top:0.5em; 
+	padding-bottom:0.5em; 
+	background-color: #FFFFFF;
+	border-bottom: #CDCDCD 1px solid;
+}
+.jobtable2{
+	padding-top:1em; 
+	background-color: #F5F5F5;
+	border-bottom: #CDCDCD 1px solid;
+}
+.jobcontenttable{
+	padding-bottom:1em;
+	padding-left: 1em;
+}
+.recordname{
+	color: #6e4830;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 1em;
+	height: 1.5em;
+}
+.recordcontent{
+	color: #949494;
+	height: 1.5em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	padding-left:1em;
+}
+
+.recordtime{
+	color: #D4D4D4;
+	height: 1.5em;
+	text-align: right;
+	padding-right: 1em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+}
+.recordjy{
+	color: #333333;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	height: 1em;
+}
+.div_ok{
+	width:30px;
+	height:20px;
+	background-image: url('../images/oa_readlist/02icon_1.png');
+	background-repeat: no-repeat;
+	background-size:30px 20px;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	color:#fff;
+	line-height: 20px;
+	text-align:center;
+	float:right;
+}
+.div_no{
+	width:30px;
+	height:20px;
+	background-image: url('../images/oa_readlist/02icon_2.png');
+	background-repeat: no-repeat;
+	background-size:30px 20px;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+	color:#fff;
+	line-height: 20px;
+	text-align:center;
+	float:right;
+}

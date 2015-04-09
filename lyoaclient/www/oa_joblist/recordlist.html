@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>审批记录</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_recordlist.css" />
+        <link rel="stylesheet" type="text/css" href="../css/webview.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+	</head>
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div >
+			<div id="content">
+				&nbsp;
+			</div>
+			<div id="content2">
+				&nbsp;
+			</div>
+		</div>
+	</body>
+    <script type="text/javascript">
+		
+		function loadData(instanceId){
+			showLoading();
+            //httpJobInfoAction!queryStoryInfoByInstanceId.do
+			var path = gzprma_path+"/httpClientCommonAction!getData.do?mark=approveTrack";
+			var param = [{"key":"instanceId","type":"0","value":instanceId}];
+			
+			$.getJSON(path,function(data){
+				$("#content2").hide();
+				var html = "";
+				if(data.length > 0){
+					for (var i = 0; i < data.length; i++) {
+                      var td_html = "";
+                      if(data[i].lineType == 1 || data[i].lineType == 2){//同意
+                        td_html = '<div class="div_ok" >同意</div>';
+                      }else if(data[i].lineType == 5 || data[i].lineType == 7){//驳回
+                        td_html = '<div class="div_no" >驳回</div>';
+                      }
+                      var tablestyle= "jobtable";
+						
+                      html += '<table cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;"'+
+                      'class="'+ tablestyle +'">' +
+                      '<tr>'+
+                      '<td style="padding-left:0.8em;"  class="recordname">'+ data[i].processor +'</td>' +
+                      '<td class="recordtime">'+ data[i].enterDate +'</td>' +
+                      '</tr>' +
+                      '<tr>' +
+                      '<td class="recordcontent" colspan="2">'+ data[i].actName +'</td>' +
+                      '</tr>' +
+                      '<tr>' +
+                      '<td class="recordcontent">意见：<span style="color:#648388;">'+ data[i].opinion +'</span></td>' +
+                      '<td  style="padding-right:0.5em;">'+ td_html +'</td>' +
+                      '</tr>';
+                      /*if(data[i].attArray.length >0){
+                        html+='<tr><td class="recordcontent" style="text-align:left; padding-left:1em;" colspan="2"><span style="color:#9b9b9b;">附件:</span></br>';
+                        for (var j = 0; j < data[i].attArray.length; j++) {
+                            html+='<a style="text-decoration: none;color:blue;" onclick="turnDetailForm(\''+gzprma_path+ data[i].attArray[j].downLoadUrl+'\',\''+data[i].attArray[j].attName+'\');">'+data[i].attArray[j].attName+'<a><br /><br />';
+                        }
+                        html+= '</td></tr>';
+                      }*/
+                      html+='</table>';
+				}
+				$("#content").html(html);
+				}else{
+					showNoResult();
+				}
+			},'json',function(e){}, 'POST', param, "");
+		}
+    
+    //跳转到详细列表
+    var messagingIframe;
+    function turnDetailForm(formUrl,name){
+        if(!messagingIframe){
+            messagingIframe = document.createElement('iframe');
+            messagingIframe.style.display = 'none';
+            document.documentElement.appendChild(messagingIframe);
+        }
+        messagingIframe.src='url://?param='+formUrl+','+name;
+        //window.AndroidClientJava.turnDetailForm(baseId, instanceId, jobId, round, versionId, formUrl);
+    }
+
+    </script>
+    
+</html>

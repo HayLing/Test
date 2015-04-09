@@ -1,0 +1,19 @@
+.ShxxContent{
+	font-size: 18px;
+	color: #DABF9B;
+}
+.ShxxTitle{
+	font-weight: bold;
+	font-size: 18px;
+	color: #787878;
+	width: 96%;
+}
+.ShxxTime{
+	font-size: 16px;
+}
+.ShxxTime a{
+	font-size: 18px;
+	color:#F57052;
+	text-align: right;
+	text-decoration: none;
+}

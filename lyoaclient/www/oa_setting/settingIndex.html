@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>系统设置</title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/oa_setting.css" />
+        <link rel="stylesheet" type="text/css" href="../css/webview.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+		<script type="text/javascript">
+		
+            var messagingIframe;
+            function goToItem(item){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+                messagingIframe.src='signout://'+item;
+                
+            }
+        
+        function fileManager(){
+            if(!messagingIframe){
+                messagingIframe = document.createElement('iframe');
+                messagingIframe.style.display = 'none';
+                document.documentElement.appendChild(messagingIframe);
+            }
+            messagingIframe.src='filemanager://';
+            
+        }
+
+
+			//检查更新
+			function getUpdateInfo(){
+				window.AndroidClientJava.getUpdateInfo();
+			}
+      			//推送消息设置
+			function pushMessage(){
+                if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+                messagingIframe.src='js-call://oa_pushmsgsetting/oa_pushmsgsetting.html?title=pushMsg';
+			}
+			//关于我们
+			function goToAbout(){
+				if(!messagingIframe){
+                    messagingIframe = document.createElement('iframe');
+                    messagingIframe.style.display = 'none';
+                    document.documentElement.appendChild(messagingIframe);
+                }
+                messagingIframe.src='js-call://oa_setting/settingAbout.html?title=about';
+			}	
+			//注销
+			function goToSignOut(){
+				window.AndroidClientJava.goToSignOut();
+			}
+
+			function checkupdate(clientVersion){
+			
+				var path = gzprma_path+"/httpCheckUpdateAction!getUpdatePackage.do";
+				var param = [{"key":"clientType","type":"0","value":"1"},{"key":"clientVersion","type":"0","value":clientVersion}];
+				$.getJSON(path,function(data){
+					
+					if(data.length > 0){
+						for (var i = 0; i < data.length; i++) {
+							var isUpdate = data[i].isBool;
+							if(isUpdate==true){
+								showRedImgIcon();
+							}else{
+								hideRedImgIcon();
+							}
+						}
+					}else{
+						hideRedImgIcon();
+					}
+					
+				},'json',function(e){}, 'POST', param, "");
+			}
+
+			function showRedImgIcon(){
+				$("#redImgIcon").show();
+			}
+
+			function hideRedImgIcon(){
+				$("#redImgIcon").hide();
+			}
+
+		</script>
+	</head>
+	
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div>
+            <!--<table cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;" border="0" class="settingtable" onclick="fileManager();">
+				<tr>
+					<td>
+						<table class="settingcontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">
+							<tr>
+                                <td class="settingInnertitle">
+                                    <img src="../images/oa_setting/01icon_1.png" style="width:1em;height:1em;" />
+                                    <span class="span_title">附件管理</span>
+                                </td>
+								
+								<td class="settingimgright"><img style="width:1.40625em; height:1.40625em;" src="../images/oa_setting/icon_2.png"><td>
+                                    </tr>
+						</table>
+					</td>
+				</tr>
+			</table>-->
+            <table cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;" border="0" class="settingtable" onclick="pushMessage();">
+				<tr>
+					<td>
+						<table class="settingcontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">
+							<tr>
+								<td class="settingtitle">
+									<img src="../images/oa_setting/01icon_2.png" style="width:1em;height:1em; " />
+									<span class="span_title">消息通知</span>
+								</td>
+								<td class="settingimgright"><img style="width:1.40625em; height:1.40625em;" src="../images/oa_setting/icon_2.png"><td>
+                                    </tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<table cellspacing="0" cellpadding="0" style="width:96%;margin:auto;margin-top:5px;" border="0" class="settingtable" onclick="goToAbout();">
+				<tr>
+					<td>
+						<table class="settingcontenttable" cellspacing="0" cellpadding="0" width="100%" border="0">
+							<tr>
+								<td class="settingtitle">
+									<img src="../images/oa_setting/01icon_3.png" style="width:1em;height:1em; " />
+									<span class="span_title">关于我们</span>
+								</td>
+								<td class="settingimgright"><img style="width:1.40625em; height:1.40625em;" src="../images/oa_setting/icon_2.png"><td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

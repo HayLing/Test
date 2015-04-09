@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bjS-AQ-nEi">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="MNi-mC-LtA">
+            <objects>
+                <viewController id="bjS-AQ-nEi" customClass="LYOALoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Hz-dJ-wUg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="K5a-Ve-8cQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yhd-dI-JFh"/>
+                    <connections>
+                        <outlet property="webView" destination="K5a-Ve-8cQ" id="xUi-y2-mda"/>
+                        <segue destination="HJ4-ga-bK5" kind="modal" identifier="Login" id="swR-nT-Jjh"/>
+                        <segue destination="cSi-Tb-mha" kind="modal" identifier="getpwd" id="HcY-i0-gwS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jht-D1-18H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2150" y="-727"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UaT-hl-inS">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HJ4-ga-bK5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Ha-bp-C3i">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Mdn-FD-lxZ">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="dNe-RX-RTu" kind="relationship" relationship="rootViewController" id="vsE-xq-8jT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvW-cU-sUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1521" y="-1255"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OgT-zx-aqA">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="cSi-Tb-mha" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K2C-9I-5Np">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ft9-AQ-KxI" kind="relationship" relationship="rootViewController" id="Qru-tS-ygy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pQJ-aY-5ky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1504" y="486"/>
+        </scene>
+        <!--For Get Password View Controller-->
+        <scene sceneID="t41-4w-kR9">
+            <objects>
+                <viewController id="ft9-AQ-KxI" customClass="LYOAForGetPasswordViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lCa-zc-RXk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="gWp-qP-TLl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xqD-EO-jcv"/>
+                    <connections>
+                        <outlet property="webView" destination="gWp-qP-TLl" id="eXG-Xu-AOC"/>
+                        <segue destination="bjS-AQ-nEi" kind="modal" identifier="login" id="uCF-V3-Ny8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHe-9D-24e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-598" y="486"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="h7j-4y-KqM">
+            <objects>
+                <viewController id="CkR-SM-98X" customClass="LYOAMessageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="obr-N7-104">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="EdX-Oj-TZz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8j6-DG-U9C"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="EdX-Oj-TZz" id="6vc-r8-SNZ"/>
+                        <segue destination="OgP-SF-q69" kind="push" identifier="gojyattention" id="lNW-2f-ZSM"/>
+                        <segue destination="qen-67-Pmz" kind="push" identifier="goread" id="zG2-Ev-2s4"/>
+                        <segue destination="esQ-Z9-pmm" kind="push" identifier="gojob" id="xqs-cv-wRb"/>
+                        <segue destination="hcb-fp-bgh" kind="push" identifier="msgtoform" id="kNX-fv-y3I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lWz-Pi-qJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1270" y="-2596"/>
+        </scene>
+        <!--Msg Read View Controller-->
+        <scene sceneID="E9d-qK-FMZ">
+            <objects>
+                <viewController id="qen-67-Pmz" customClass="LYOAMsgReadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Evc-Bh-4wF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="wAa-uK-IXu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3OE-7C-b0J"/>
+                    <connections>
+                        <outlet property="webView" destination="wAa-uK-IXu" id="w4u-WJ-Guy"/>
+                        <segue destination="hcb-fp-bgh" kind="push" identifier="goreadform" id="JZq-zP-caK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AH2-9r-Kgq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-337" y="-3072"/>
+        </scene>
+        <!--Msg Read Form View Controller-->
+        <scene sceneID="0Et-qf-9NL">
+            <objects>
+                <viewController id="hcb-fp-bgh" customClass="LYOAMsgReadFormViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qwh-I5-ocI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="MxU-fh-hfU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fsz-qJ-1Bn"/>
+                    <connections>
+                        <outlet property="webView" destination="MxU-fh-hfU" id="fdV-1K-xPD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qIq-cr-eZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="-2740"/>
+        </scene>
+        <!--Msg Job View Controller-->
+        <scene sceneID="cNz-rb-IXJ">
+            <objects>
+                <viewController id="esQ-Z9-pmm" customClass="LYOAMsgJobViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ejn-nc-XU6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="CFX-Xh-x9g">
+                                <rect key="frame" x="0.0" y="116" width="320" height="408"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="260" placeholderIntrinsicHeight="35" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="FoV-ot-rjo">
+                                <rect key="frame" x="30" y="73" width="260" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="表单详情"/>
+                                    <segment title="审批轨迹"/>
+                                </segments>
+                            </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" id="IHL-HB-P5P">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="lI8-zb-Xih"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PNT-fi-yw0"/>
+                    <connections>
+                        <outlet property="uiBar" destination="IHL-HB-P5P" id="nIL-y5-IOT"/>
+                        <outlet property="uiItem" destination="lI8-zb-Xih" id="yok-5S-VLF"/>
+                        <outlet property="uiSC" destination="FoV-ot-rjo" id="7vd-dk-lsw"/>
+                        <outlet property="webView" destination="CFX-Xh-x9g" id="Hue-FR-oOE"/>
+                        <segue destination="vlx-CE-pGo" kind="push" identifier="goJyreportInfo" id="kxf-fv-QY9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AqN-2a-XwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-289" y="-1986"/>
+        </scene>
+        <!--Msg Report Info View Controller-->
+        <scene sceneID="BAY-La-pGi">
+            <objects>
+                <viewController id="vlx-CE-pGo" customClass="LYOAMsgReportInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3IT-w4-tMk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="fwC-aK-gi8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7EB-gz-GVG"/>
+                    <connections>
+                        <outlet property="webView" destination="fwC-aK-gi8" id="sLD-kR-D7A"/>
+                        <segue destination="gLp-DV-iMm" kind="push" identifier="gofileview" id="MNu-Qf-eyG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYe-dq-BSi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="-2002"/>
+        </scene>
+        <!--File Table View Controller-->
+        <scene sceneID="xaL-pa-fIn">
+            <objects>
+                <tableViewController id="gLp-DV-iMm" customClass="XXOAFileTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GES-vH-FI8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eRc-U0-PZl">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eRc-U0-PZl" id="vnG-hC-7ub">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gLp-DV-iMm" id="OEB-7O-hbb"/>
+                            <outlet property="delegate" destination="gLp-DV-iMm" id="8rH-nd-KGU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gXU-f5-sGC"/>
+                    <connections>
+                        <outlet property="fileview" destination="GES-vH-FI8" id="6fC-uH-d0y"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0iH-ka-Nlf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834" y="-2002"/>
+        </scene>
+        <!--MsgJ Yattention View Controller-->
+        <scene sceneID="bmi-0f-QOL">
+            <objects>
+                <viewController id="OgP-SF-q69" customClass="LYOAMsgJYattentionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yp7-ag-7Ar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="oiL-ux-7YL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8oT-m1-bhV"/>
+                    <connections>
+                        <outlet property="webView" destination="oiL-ux-7YL" id="YNy-Ju-ixL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Udb-i3-zR9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-361" y="-3883"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="IWf-gz-INR">
+            <objects>
+                <viewController id="DG1-ac-KoH" customClass="LYOASettingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qfd-pc-ieg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="pnv-Cy-hJz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="3" title="设置" image="icon_3(1).png" id="nev-IB-HjO"/>
+                    <navigationItem key="navigationItem" id="pmr-mL-9fV"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="pnv-Cy-hJz" id="S3R-Ps-Yvq"/>
+                        <segue destination="yuS-Jl-zc8" kind="push" identifier="about" id="yQx-jO-7wz"/>
+                        <segue destination="gLp-DV-iMm" kind="push" identifier="setgofileview" id="elZ-6e-c1e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGC-CG-O3K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="641"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="kn2-cY-QDc">
+            <objects>
+                <viewController id="yuS-Jl-zc8" customClass="LYOAAboutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sEZ-XP-RYh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="bGm-Xq-Ur6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Ws-n8-fcU"/>
+                    <connections>
+                        <outlet property="webView" destination="bGm-Xq-Ur6" id="oGp-fu-6g8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXN-qd-tpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="635"/>
+        </scene>
+        <!--Jyattention View Controller-->
+        <scene sceneID="W1G-yr-s0v">
+            <objects>
+                <viewController id="QlM-yd-FFR" customClass="LYOAJyattentionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g2h-aI-Nil">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="FPX-yN-sgb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Cgm-Yu-G8l"/>
+                    <connections>
+                        <outlet property="webView" destination="FPX-yN-sgb" id="nM6-4r-0W1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PN8-wV-XjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-1876"/>
+        </scene>
+        <!--Job Form View Controller-->
+        <scene sceneID="eKA-oe-600">
+            <objects>
+                <viewController id="5fx-iQ-h5q" customClass="LYOAJobFormViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UPb-Li-hOm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="937-nG-Tj0">
+                                <rect key="frame" x="0.0" y="109" width="320" height="418"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="260" placeholderIntrinsicHeight="35" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="lS2-mj-Hq1">
+                                <rect key="frame" x="30" y="69" width="260" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="表单详情"/>
+                                    <segment title="审批轨迹"/>
+                                </segments>
+                            </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" id="Z3s-fz-VCk">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="A5s-rM-4Tn"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                    </view>
+                    <navigationItem key="navigationItem" id="lFS-Lk-AoW"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <connections>
+                        <outlet property="ngBar" destination="Z3s-fz-VCk" id="DRC-h2-4uh"/>
+                        <outlet property="ngItem" destination="A5s-rM-4Tn" id="jYE-aN-BcW"/>
+                        <outlet property="sc" destination="lS2-mj-Hq1" id="ZNu-2n-0nx"/>
+                        <outlet property="searchDisplayController" destination="PlA-z5-ydZ" id="hdE-MI-vEz"/>
+                        <outlet property="tabItem" destination="A5s-rM-4Tn" id="h2F-Qn-hc6"/>
+                        <outlet property="webView" destination="937-nG-Tj0" id="8Io-gc-0cj"/>
+                        <segue destination="BUF-S5-XlN" kind="push" identifier="JyreportInfo" id="7dh-Nb-iwY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DfJ-Gu-ppg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="PlA-z5-ydZ">
+                    <connections>
+                        <outlet property="delegate" destination="5fx-iQ-h5q" id="uyq-51-Fuc"/>
+                        <outlet property="searchContentsController" destination="5fx-iQ-h5q" id="5bP-r5-XmR"/>
+                        <outlet property="searchResultsDataSource" destination="5fx-iQ-h5q" id="Xpc-df-0wC"/>
+                        <outlet property="searchResultsDelegate" destination="5fx-iQ-h5q" id="Zwk-EJ-zQZ"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2020" y="-3338"/>
+        </scene>
+        <!--Jyreport Info View Controller-->
+        <scene sceneID="Dhr-5t-k6M">
+            <objects>
+                <viewController id="BUF-S5-XlN" customClass="LYOAJyreportInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lY5-1a-LTB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="x9h-Lx-aVw">
+                                <rect key="frame" x="0.0" y="-2" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yCt-4W-ngB"/>
+                    <connections>
+                        <outlet property="webView" destination="x9h-Lx-aVw" id="ZDt-bk-GPC"/>
+                        <segue destination="gLp-DV-iMm" kind="push" identifier="jobgofileview" id="dXb-gR-q4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWB-1v-nx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2538" y="-3330"/>
+        </scene>
+        <!--Luanchflow View Controller-->
+        <scene sceneID="hIw-6x-J04">
+            <objects>
+                <viewController id="ZiV-hB-w9h" customClass="LYOALuanchflowViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lkW-fH-jPx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="lbT-Xr-hxp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Xt0-2J-Wav"/>
+                    <connections>
+                        <outlet property="webView" destination="lbT-Xr-hxp" id="zoT-Gj-JrR"/>
+                        <segue destination="5fx-iQ-h5q" kind="push" identifier="Launch" id="xys-ig-2wo"/>
+                        <segue destination="hcb-fp-bgh" kind="push" identifier="readform" id="8ap-QK-8NO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FOb-8d-xia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2020" y="-2619"/>
+        </scene>
+        <!--App View Controller-->
+        <scene sceneID="6qT-aS-LXQ">
+            <objects>
+                <viewController id="dNe-RX-RTu" customClass="LYOAAppViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Alf-YY-bp1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="300" id="x8y-7B-QJz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="peh-t1-H6k"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="x8y-7B-QJz" id="ZCV-3Z-rer"/>
+                        <segue destination="NVD-TA-Xgb" kind="push" identifier="Category" id="mmF-o5-2k3"/>
+                        <segue destination="esQ-Z9-pmm" kind="push" identifier="appgojob" id="7MH-5x-Khx"/>
+                        <segue destination="qen-67-Pmz" kind="push" identifier="appgoread" id="3Fg-K1-Dqf"/>
+                        <segue destination="DG1-ac-KoH" kind="push" identifier="toset" id="6GZ-J9-t40"/>
+                        <segue destination="CkR-SM-98X" kind="push" identifier="tomsg" id="4Ir-XJ-4LI"/>
+                        <segue destination="bjS-AQ-nEi" kind="modal" identifier="signOut" id="FHb-B4-5WA"/>
+                        <segue destination="hcb-fp-bgh" kind="push" identifier="toreadform" id="ium-cG-8gp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zqE-R7-p7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-890" y="-734"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="dSz-D8-Nrz">
+            <objects>
+                <viewController id="NVD-TA-Xgb" customClass="LYOACategoryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XtK-CN-LiG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="Zex-qx-lhF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fx3-0Q-MJS"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="Zex-qx-lhF" id="EVv-xp-dza"/>
+                        <segue destination="ZiV-hB-w9h" kind="push" identifier="Luanchflow" id="YVe-Bq-a5G"/>
+                        <segue destination="QlM-yd-FFR" kind="push" identifier="Jyattention" id="xpm-2m-9SO"/>
+                        <segue destination="5fx-iQ-h5q" kind="push" identifier="Jobform" id="r0E-wA-oa0"/>
+                        <segue destination="hcb-fp-bgh" kind="push" identifier="apptoform" id="ox7-R7-Osd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sD-S3-baD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1488" y="-2212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_3(1).png" width="20" height="20"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="FHb-B4-5WA"/>
+        <segue reference="ium-cG-8gp"/>
+        <segue reference="7MH-5x-Khx"/>
+        <segue reference="3Fg-K1-Dqf"/>
+        <segue reference="elZ-6e-c1e"/>
+        <segue reference="r0E-wA-oa0"/>
+    </inferredMetricsTieBreakers>
+</document>

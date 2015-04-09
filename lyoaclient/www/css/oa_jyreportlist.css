@@ -1,0 +1,47 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #FFFFFF;
+}
+.jobtable{
+	padding-top:1em; 
+	background-color: #FFFFFF;
+	border-bottom: #CDCDCD 1px solid;
+}
+.jobtable2{
+	padding-top:1em; 
+	background-color: #F5F5F5;
+	border-bottom: #CDCDCD 1px solid;
+}
+.jobcontenttable{
+	padding-bottom:1em;
+	padding-left: 1em;
+}
+.jobtitle{
+	color: #333333;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 1em;
+	height: 1.5em;
+}
+.jobcontent{
+	color: #9B9B9B;
+	height: 1.5em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+}
+.jobimgtd{
+	width :2.1875em; 
+	height:2.78125em;
+}
+.jobimg{
+	padding-left: 1.1875em;
+	padding-bottom: 1em;
+}
+.jobtime{
+	color: #D4D4D4;
+	height: 1.5em;
+	text-align: right;
+	padding-right: 1em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.8em;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+	    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	    <meta http-equiv="description" content="this is my page">
+	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="../js/path.js"></script>
+		<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/bszy.css" />
+		<link rel="stylesheet" type="text/css" href="../css/content.css" />
+		<script type="text/javascript" src="../js/plugpack/uexplug.js"></script>
+	</head>
+	<body style="background-color:#e8e8e8;width: 100%;">
+		<div >
+			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+				<tr>
+					<td style="width :1.3125em; height:2.78125em;" >
+						<img src="../images/01serach_left.png" style="width :1.3125em; height:2.78125em;" />
+					</td>
+					<td style=" height:2.78125em; background-image:url('../images/01serach_mid.png');background-repeat:repeat-x; background-size: 100% 2.78125em;"  >
+						<input type="text" style="font-size:0.875em;width: 100%;height: 50%;border:0em;margin-top: 0.0625em;" id="search" placeholder="" />
+					</td>
+					<td style="width :2.1875em; height:2.78125em;" onclick="uexOnload('load');">
+						<img src="../images/01serach_right.png" style="width :2.1875em; height:2.78125em;"  />
+					</td>
+				</tr>
+			</table>
+			<div id="content">
+				&nbsp;
+			</div>
+		</div>
+	</body>
+    <script type="text/javascript">
+		var typeId = window.localStorage.getItem("tzggList");
+		var loadsearch = window.localStorage.getItem("search");
+		if(loadsearch != null){
+			$$('search').value = loadsearch;
+		}
+		window.uexOnload = function(fu){
+			if(window.localStorage.getItem("pages") == null){//首次加载
+				loadData();
+			}else if(fu=='load'){//点击搜索
+				closeCache();
+	       		loadData();
+	       		window.localStorage.setItem("search",$$('search').value);
+	       }else{//下拉刷新
+	       		pullUpUpdate();
+	       }
+		}
+		
+		function loadData(){
+			var pages = 1;
+			var path = gzprma_path+"/announcements/announcementsAction!getAnnouncementsList.do";
+			var param = [{"key":"e.relCategoryId","type":"0","value":typeId},{"key":"page","type":"0","value":1},{"key":"e.title","type":"0","value": $$('search').value}];
+			var type = "tzgg";
+			$.getJSON(path,function(data){
+				var html = "";
+				for (var i = 0; i < data.length; i++) {
+					var title = data[i].title;
+					var width = document.body.clientWidth;
+					var textwidth = (width-40)+"px";
+					html += '<table  id="'+data[i].id+'" onclick="turnActivityDetail(this.id,\''+ type +'\');" class="contentTbl" border="0" cellspacing="0" cellpadding="0" width="100%">' +
+	            		'<tr>' +
+	            			'<td class="contentTbl_td_left"></td>' +
+	            			'<td class="contentTbl_td_mid">' +
+								'<table border="0" cellspacing="0" cellpadding="0" width="100%">'+
+									'<tr><td class="contentTbl_td_div_left"><div class="cutText" style="width:'+textwidth+';">'+title+'</div></td></tr>'+
+									'<tr><td class="contentTbl_td_div_title" style="text-align:right;"><div class="cutText" style="width:'+textwidth+';">时间:'+ data[i].fbDate+'</div></td></tr>'+
+								'</table>'+
+	            			'</td>' +
+	            			'<td class="contentTbl_td_right"></td>' +
+	            		'</tr>' +
+	            	'</table>';
+				}
+				$("#content").html(html);
+				window.localStorage.setItem("pages",pages);
+	            window.localStorage.setItem("loadhtml",html);
+			},'json',function(e){}, 'POST', param, "");
+		}
+		
+		function pullUpUpdate(){
+        	var pages = window.localStorage.getItem("pages");
+        	var loadhtml = window.localStorage.getItem("loadhtml");
+        	pages++;
+			var path = gzprma_path+"/announcements/announcementsAction!getAnnouncementsList.do";
+			var param = [{"key":"e.relCategoryId","type":"0","value":typeId},{"key":"page","type":"0","value":pages},{"key":"e.title","type":"0","value": $$('search').value}];
+			var type = "tzgg";
+			$.getJSON(path,function(data){
+				var html = "";
+				for (var i = 0; i < data.length; i++) {
+					var title = data[i].title;
+					var width = document.body.clientWidth;
+					var textwidth = (width-40)+"px";
+					
+					html += '<table  id="'+data[i].id+'" onclick="turnActivityDetail(this.id,\''+ type +'\');" class="contentTbl" border="0" cellspacing="0" cellpadding="0" width="100%">' +
+	            		'<tr>' +
+	            			'<td class="contentTbl_td_left"></td>' +
+	            			'<td class="contentTbl_td_mid">' +
+								'<table border="0" cellspacing="0" cellpadding="0" width="100%">'+
+									'<tr><td class="contentTbl_td_div_left"><div class="cutText" style="width:'+textwidth+';">'+title+'</div></td></tr>'+
+									'<tr><td class="contentTbl_td_div_title" style="text-align:right;"><div class="cutText" style="width:'+textwidth+';">时间:'+ data[i].fbDate+'</div></td></tr>'+
+								'</table>'+
+	            			'</td>' +
+	            			'<td class="contentTbl_td_right"></td>' +
+	            		'</tr>' +
+	            	'</table>';
+				}
+	            var htm = loadhtml + html;
+	            $("#content").html(htm);
+	            window.localStorage.setItem("pages",pages);
+	            window.localStorage.setItem("loadhtml",htm);
+            }, 'json', function(e){}, 'POST', param, "");
+            
+        }
+		
+		//清除缓存
+        function closeCache(){
+	        localStorage.removeItem("pages");
+		    localStorage.removeItem("loadhtml");
+		    localStorage.removeItem("search");
+        }
+        
+        function turnActivityDetail(id,type){
+        	window.localStorage.setItem("tzggDetail",id);
+			window.AndroidClientJava.turnActivityDetail(id,type); 
+		}
+    </script>
+</html>

@@ -1,0 +1,165 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #ebefee;
+}
+.titleTab{
+	height: 2.75em;
+	background-image: url(../images/common/01top_mid.png);
+	background-size:0.1875em 2.75em;
+}
+.titleI{
+	height: 2.75em;
+	width: 2.75em;
+	text-align:center;
+}
+.titleSet{
+	height: 2.75em;
+	width: 2.75em;
+	text-align:center;
+}
+.page{
+	height: 2em;
+	width: 50%;
+	background-image: url(../images/common/00nav_2.png);
+	background-size:0.1875em 2em;
+	line-height: 2em;
+	text-align: center;
+	font-size:1em;
+	font-weight:bold;
+	color:#333333;
+	font-family: "Microsoft YaHei" ! important;
+}
+.pageAct{
+	height: 2em;
+	width: 50%;
+	background-image: url(../images/common/00nav_1.png);
+	background-size:0.1875em 2em;
+	line-height: 2em;
+	text-align: center;
+	font-size:1em;
+	font-weight:bold;
+	color:white;
+	font-family: "Microsoft YaHei" ! important;
+}
+.notfiyTable{
+	height: 2em;
+	width:100%;
+	background-image: url(../images/common/03bg_mid.png);
+	background-size:0.1875em 2em;
+	position: fixed;
+	bottom:0px;
+	height: 2em;
+}
+.notfiyIcon{
+	height: 2em;
+	width:3.2em;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url(../images/common/03icon.png);
+	background-size:0.7em 0.7em;
+}
+.notfiyText{
+	height: 2em;
+	text-align:left;
+	vertical-align:middle;
+	color:#333333;
+	font-size:1em;
+	font-family: "Microsoft YaHei" ! important;
+}
+a , a:link ,a:visited ,a:hover ,a:active{
+	color:#333333;
+	text-align:center;
+	text-decoration:none;
+}
+ .Scroller {
+    line-height: 2em;
+    padding: 0em 0.625em;
+    height: 2em;
+}
+
+.Scroller * {
+    margin: 0em;
+    padding: 0em;
+}
+
+.ScrollMid {
+    float: left;
+}
+
+.ScrollMid ul {
+    float: left;
+}
+
+.ScrollMid li {
+    list-style: none;
+    float: left;
+    line-height: 2em;
+	padding-left: 0.625em;
+}
+
+.image1{
+	background-image: url('../images/oa_app/02pic_5.gif');
+	width: 100%;
+	height:8.0625em;
+	background-repeat: no-repeat;
+}
+.image2{
+	background-image: url('../images/oa_app/02pic_6.gif');
+	width: 100%;
+	height:8.0625em;
+	background-repeat: no-repeat;
+}
+.image3{
+	background-image: url('../images/oa_app/02pic_7.gif');
+	width: 100%;
+	height:8.0625em;
+	background-repeat: no-repeat;
+}
+.image4{
+	background-image: url('../images/oa_app/02pic_8.gif');
+	width: 100%;
+	height:8.0625em;
+	background-repeat: no-repeat;
+}
+
+.apptitle1{
+	text-align: center;
+	background-color:#3DBF55;
+	color: white;
+	font-size:1em;
+	font-family: "Microsoft YaHei" ! important;
+}
+.apptitle2{
+	text-align: center;
+	background-color:#FFA200;
+	color: white;
+	font-size:1em;
+	font-family: "Microsoft YaHei" ! important;
+}
+.apptitle3{
+	text-align: center;
+	background-color:#2D91D0;
+	color: white;
+	font-size:1em;
+	font-family: "Microsoft YaHei" ! important;
+}
+.apptitle4{
+	text-align: center;
+	background-color:#E55539;
+	color: white;
+	font-size:1em;
+	font-family: "Microsoft YaHei" ! important;
+}
+
+.appheight{
+	height:2em;
+}
+
+.applogin{
+	text-align: center;
+	color: white;
+	font-size:1.256em;
+	font-family: "Microsoft YaHei" ! important;
+}
+

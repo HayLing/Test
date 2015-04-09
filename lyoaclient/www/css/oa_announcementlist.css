@@ -1,0 +1,58 @@
+body{
+	padding: 0em;
+	margin: 0em;
+	background-color: #FFFFFF;
+	width: 100%;
+}
+.messagetable{
+	/*padding-top:0.5em; */
+	height:3.5em;
+	background-color: #FFFFFF;
+	border-bottom: #CDCDCD 1px solid;
+}
+.messagecontenttable{
+	/*padding-bottom: 0.5em;*/
+	padding-left: 1em;
+}
+.messagetitle{
+	color: #6e4830;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 1.025em;
+	height: 1.035em;
+}
+.messagecontent{
+	color: #9B9B9B;
+	height: 1.5em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.835em;
+}
+.messageimgtd{
+	padding-left: 1em;
+	width :2.1875em; 
+	height:2.78125em;
+}
+.messageimg{
+	background-image:url(../images/oa_announcement/icon_01.png);
+	background-size:2.475em 2.475em;
+	
+	width:2.475em;
+	height:2.475em;
+}
+.messagetime{
+	color: #9B9B9B;
+	height: 1.5em;
+	text-align: right;
+	padding-right: 0.5em;
+	font-family: "Microsoft YaHei" ! important;
+	font-size: 0.7em;
+}
+
+.point_div{
+	width: 1em;
+	height:1em;
+	 position:relative;
+	 top:-0.3em;
+	 right:-1.2em;
+	 background-size:1em 1em;
+	 background-image:url(../images/oa_main/icon_3.png);
+}
